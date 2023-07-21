@@ -1,0 +1,40 @@
+﻿@model LibraryApp.DAL.Models.BorrowingOP
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center" style="color: #2596be;">Add New Borrowing</h1>
+
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group m-3">
+                <label asp-for="Book_Id" class="control-label">Book Name</label>
+                <select asp-for="Book_Id" asp-items="@ViewBag.Books" class="form-select">
+                    <option value="">Choose a Book</option>
+                    </select>
+                <span asp-validation-for="Book_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <label asp-for="Borrower_Id" class="control-label">Borrower Name</label>
+                <select asp-for="Borrower_Id" asp-items="@ViewBag.Borrowers" class="form-select">
+                    <option value="">Choose a Borrower</option>
+                </select>
+                <span asp-validation-for="Borrower_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <input type="submit" value="Add" class="btn" style="background-color:#2596be; color: #ffff;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn m-3" style="background-color:#2596be; color: #ffff;" asp-action="Index">Back to Book List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

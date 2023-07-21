@@ -1,0 +1,31 @@
+﻿@model LibraryApp.PAL.ViewModel.ReturnVM
+
+@{
+    ViewData["Title"] = "ReturnBook";
+}
+
+<h1 class="text-center" style="color: #2596be;">Return Book</h1>
+
+<div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <form asp-action="ReturnBook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group m-3">
+                <label asp-for="Id" class="control-label">Borrowing operation Id</label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group m-3">
+                <input type="submit" value="Return" class="btn" style="background-color:#2596be; color: #ffff;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn m-3" style="background-color:#2596be; color: #ffff;" asp-action="Index">Back to Book List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

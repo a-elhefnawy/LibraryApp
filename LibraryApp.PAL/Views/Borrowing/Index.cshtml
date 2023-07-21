@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LibraryApp.PAL.ViewModel.BorrowingVM>
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+
+<p>
+    <a class="btn" style="background-color:#2596be; color: #ffff;" asp-action="Create">Add New Borrowing</a>
+    <a class="btn" style="background-color:#2596be; color: #ffff;" asp-action="ReturnBook">Return Book</a>
+</p>
+<div class="panel-heading templatemo-position-relative" style="background-color:#2596be">
+    <h2 style="color:#ffff;" class="text-uppercase text-center p-2">Borrowing Operations</h2>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Book Name</th>
+                <th class="text-center">Borrower Name</th>
+            </tr>
+        </thead>
+        <tbody class="">
+            @foreach (var item in Model)
+            {
+                <tr id="id-@item.Id">
+                    <td class="text-center">@item.Id</td>
+                    <td class="text-center">@item.Book_Name</td>
+                    <td class="text-center">@item.Borrower_Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

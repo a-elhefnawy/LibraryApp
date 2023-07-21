@@ -1,0 +1,36 @@
+﻿@model LibraryApp.PAL.ViewModel.LogInVM
+
+@{
+    Layout = "_logInLayout";
+    ViewData["Title"] = "LogIn";
+}
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body p-5 text-center">
+        <form asp-action="LogIn">
+                    <h3 class="mb-5">Sign In</h3>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group mb-4">
+                        <input asp-for="UserName" class="form-control" placeholder="Enter Your UserName" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <input asp-for="Password" class="form-control" placeholder="Enter Your Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                        <button style="width:100%; background-color:#2596be; color:#ffff;" class="btn btn-lg btn-block" type="submit">Login</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
